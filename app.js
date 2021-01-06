@@ -8,6 +8,7 @@ const app = () => {
     const sounds = document.querySelectorAll('.sound-picker button')
     //time display
     const timeDisplay = document.querySelector('.time-display')
+    const timeSelect = document.querySelectorAll('.time-select button')
     //get length of outline
     const outlineLength = outline.getTotalLength()
     //duration
@@ -32,6 +33,14 @@ const app = () => {
         video.pause()
         play.src = './svg/play.svg'
     }
+
+    //select sound
+    timeSelect.forEach(option => {
+        option.addEventListener('click', function() {
+            fakeDuration = this.getAttribute('data-time')
+            timeDisplay.textContent = `${Math.floor(fakeDuration / 60)} : ${Math.floor(fakeDuration % 60)}`
+        })
+    })
 
 }
 //animate circle and check time
