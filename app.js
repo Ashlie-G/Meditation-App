@@ -17,13 +17,22 @@ const app = () => {
     outline.style.strokeDasharray = outlineLength
     outline.style.strokeDashoffset = outlineLength
 
+    //pick different sounds
+    sounds.forEach(sound => {
+        sound.addEventListener('click', function(){
+            song.src = this.getAttribute('data-sound')
+            video.src= this. getAttribute('data-video')
+            checkPlaying(song)
+        })
+    })
+
     //play sounds
         play.addEventListener('click', () => {
-            checkPaying(song)
+            checkPlaying(song)
         })
 
     //function to stop and play sounds
-    const checkPaying = song => {
+    const checkPlaying = song => {
     if(song.paused){
         song.play()
         video.play()
@@ -55,6 +64,14 @@ song.ontimeupdate = () => {
     outline.style.strokeDashoffset = progress
     //animate text
     timeDisplay.textContent = `${minutes}: ${seconds}`
+
+    if(currentTime >= fakeDuration){
+        song.pause()
+        song.currentTime = 0
+        play.src = './svg/play.svg'
+        video.pause()
+
+    }
 }
 }
 
