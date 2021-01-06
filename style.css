@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
 }
 
 .app {
@@ -21,9 +22,9 @@
 }
 
 
-.player-container{
+/* .player-container{
     position: relative;
-}
+} */
 
 .player-container svg{
     position: absolute;
@@ -34,13 +35,22 @@
     pointer-events: none;
 }
 
-
-video{
-    position: fixed;
+.vid-container{
+    display: flex;
+    position: absolute;
     top: 0%;
     left: 0%;
     width: 100%;
+    height: 100%;
     z-index: -10;
+    overflow: hidden;
+}
+
+video{
+   min-width: 100%;
+   min-height: 100%;
+   width: auto;
+   height: auto;
 }
 
 .time-display{
@@ -83,4 +93,7 @@ video{
 
 .sound-picker button img {
     height: 100%;
+}
+@media screen and (max-width: 700px){
+
 }
