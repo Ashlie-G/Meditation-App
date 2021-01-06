@@ -11,7 +11,7 @@
     align-items: center;
 }
 
-.time-select, .sound-picker{
+.time-select, .sound-picker, .player-container{
     height: 80%;
     flex: 1;
     display: flex;
@@ -20,18 +20,49 @@
     align-items: center;
 }
 
-.time-select{
-    background: lightblue;
-}
 
 .player-container{
-    background: lightgreen;
+    position: relative;
 }
 
-.sound-picker{
-    background: lightpink;
+.player-container svg{
+    position: absolute;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
 }
+
 
 video{
-    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    z-index: -10;
+}
+
+.time-display{
+    position: absolute;
+    bottom: 10%;
+    color: white;
+    font-size: 50px;
+}
+
+.time-select button, .sound-picker button{
+    color: white;
+    width: 30%;
+    height: 10%;
+    background: none;
+    border: 2px solid white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: all 0.5s ease;
+}
+
+.time-select button:hover{
+    color: black;
+    background: white;
 }
